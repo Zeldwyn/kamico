@@ -1,0 +1,25 @@
+{
+  "name": "base-monorepo-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Base monorepo template for service/marketing websites with optional CMS support",
+  "workspaces": [
+    "app/site",
+    "app/cms"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=app/site",
+    "dev:all": "npm-run-all --parallel dev:site dev:cms",
+    "dev:site": "npm run dev --workspace=app/site",
+    "dev:cms": "npm run dev --workspace=app/cms",
+    "build": "npm run build --workspace=app/site",
+    "preview": "npm run preview --workspace=app/site",
+    "deploy:cms": "npm run deploy --workspace=app/cms"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

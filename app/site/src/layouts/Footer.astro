@@ -1,0 +1,55 @@
+---
+/**
+ * Footer.astro
+ * Site footer with links and contact info
+ *
+ * Customize the content below
+ */
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-gray-900 text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Brand / About -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">YourBrand</h3>
+        <p class="text-gray-400">
+          Brief description of your business or service goes here.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="font-semibold mb-4">Quick Links</h4>
+        <ul class="space-y-2 text-gray-400">
+          <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
+          <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact / Social -->
+      <div>
+        <h4 class="font-semibold mb-4">Connect</h4>
+        <div class="flex gap-4 text-gray-400">
+          <a href="#" class="hover:text-white transition-colors" aria-label="Facebook">
+            <i class="fab fa-facebook text-xl"></i>
+          </a>
+          <a href="#" class="hover:text-white transition-colors" aria-label="Instagram">
+            <i class="fab fa-instagram text-xl"></i>
+          </a>
+          <a href="#" class="hover:text-white transition-colors" aria-label="Twitter">
+            <i class="fab fa-twitter text-xl"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; {currentYear} YourBrand. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

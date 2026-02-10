@@ -1,0 +1,22 @@
+{
+  "name": "@template/cms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Optional Sanity CMS Studio - only needed if CMS features are enabled",
+  "scripts": {
+    "dev": "sanity dev",
+    "start": "sanity dev",
+    "build": "sanity build",
+    "deploy": "sanity deploy",
+    "typegen": "sanity typegen generate"
+  },
+  "dependencies": {
+    "@sanity/vision": "^5.0.1",
+    "sanity": "^5.0.1",
+    "styled-components": "^6.1.19"
+  },
+  "devDependencies": {
+    "@sanity/types": "^3.67.1",
+    "typescript": "^5.7.2"
+  }
+}

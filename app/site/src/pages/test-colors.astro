@@ -1,0 +1,144 @@
+---
+/**
+ * Color Test Page
+ * Navigate to /test-colors to verify all colors are working
+ * DELETE THIS FILE after verification
+ */
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Dark Theme Color Test">
+  <div class="container py-12 max-w-4xl mx-auto">
+    <h1 class="text-4xl font-bold bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent mb-4">
+      🎨 Dark Theme Color Test
+    </h1>
+    <p class="text-lg text-primary mb-2">Black Theme with Cyan Accent</p>
+    <p class="text-muted mb-12">All colors should be visible on dark background. Cyan should be prominent.</p>
+
+    <!-- Quick Visual Test -->
+    <section class="mb-12 bg-surface p-8 rounded-lg border border-border">
+      <h2 class="text-2xl font-bold text-foreground mb-6">Quick Visual Test</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="h-24 bg-primary rounded flex items-center justify-center text-black font-bold shadow-lg shadow-primary/50">
+          Primary
+        </div>
+        <div class="h-24 bg-secondary rounded flex items-center justify-center text-black font-bold shadow-lg shadow-secondary/50">
+          Secondary
+        </div>
+        <div class="h-24 bg-accent rounded flex items-center justify-center text-black font-bold shadow-lg shadow-accent/50">
+          Accent
+        </div>
+        <div class="h-24 bg-success rounded flex items-center justify-center text-black font-bold">
+          Success
+        </div>
+        <div class="h-24 bg-error rounded flex items-center justify-center text-white font-bold">
+          Error
+        </div>
+        <div class="h-24 bg-warning rounded flex items-center justify-center text-black font-bold">
+          Warning
+        </div>
+        <div class="h-24 bg-info rounded flex items-center justify-center text-black font-bold">
+          Info
+        </div>
+        <div class="h-24 bg-surface-elevated rounded flex items-center justify-center text-foreground font-bold border border-border">
+          Surface
+        </div>
+      </div>
+    </section>
+
+    <!-- Brand Colors -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-foreground mb-4">Brand Colors</h2>
+      <div class="space-y-4">
+        <div class="flex items-center gap-4">
+          <div class="w-32 h-16 bg-primary rounded"></div>
+          <div>
+            <p class="font-semibold text-foreground">bg-primary</p>
+            <p class="text-sm text-muted">#196460</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-32 h-16 bg-primary-hover rounded"></div>
+          <div>
+            <p class="font-semibold text-foreground">bg-primary-hover</p>
+            <p class="text-sm text-muted">Darker variant</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-32 h-16 bg-primary-light rounded"></div>
+          <div>
+            <p class="font-semibold text-foreground">bg-primary-light</p>
+            <p class="text-sm text-muted">#91E5DB</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Tests -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-foreground mb-4">Button Tests</h2>
+      <div class="flex flex-wrap gap-4">
+        <button class="bg-primary hover:bg-primary-hover text-black px-6 py-3 rounded-lg transition-all shadow-lg shadow-primary/50 hover:scale-105">
+          Primary Button
+        </button>
+        <button class="bg-secondary hover:bg-secondary-hover text-black px-6 py-3 rounded-lg transition-all shadow-lg shadow-secondary/50 hover:scale-105">
+          Secondary Button
+        </button>
+        <button class="border-2 border-primary text-primary hover:bg-primary hover:text-black px-6 py-3 rounded-lg transition-all hover:shadow-lg hover:shadow-primary/50">
+          Outline Primary
+        </button>
+        <button class="bg-surface-elevated border border-border text-foreground hover:border-primary px-6 py-3 rounded-lg transition-all hover:bg-surface-hover">
+          Ghost Button
+        </button>
+      </div>
+    </section>
+
+    <!-- Text Colors -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-foreground mb-4">Text Colors</h2>
+      <div class="space-y-2">
+        <p class="text-foreground text-lg">✓ text-foreground (primary text)</p>
+        <p class="text-muted text-lg">✓ text-muted (secondary text)</p>
+        <p class="text-subtle text-lg">✓ text-subtle (tertiary text)</p>
+        <p class="text-primary text-lg">✓ text-primary</p>
+        <p class="text-success text-lg">✓ text-success</p>
+        <p class="text-error text-lg">✓ text-error</p>
+        <p class="text-warning text-lg">✓ text-warning</p>
+        <p class="text-info text-lg">✓ text-info</p>
+      </div>
+    </section>
+
+    <!-- Opacity Test -->
+    <section class="mb-12">
+      <h2 class="text-2xl font-bold text-foreground mb-4">Opacity Support</h2>
+      <div class="flex gap-2">
+        <div class="w-20 h-20 bg-primary rounded"></div>
+        <div class="w-20 h-20 bg-primary/80 rounded"></div>
+        <div class="w-20 h-20 bg-primary/60 rounded"></div>
+        <div class="w-20 h-20 bg-primary/40 rounded"></div>
+        <div class="w-20 h-20 bg-primary/20 rounded"></div>
+      </div>
+      <p class="text-sm text-muted mt-2">bg-primary with /80, /60, /40, /20 opacity</p>
+    </section>
+
+    <!-- Status Check -->
+    <section class="bg-success/10 border-l-4 border-success p-6 rounded">
+      <p class="text-success font-bold text-lg mb-2">✅ If all colors above are visible and correct:</p>
+      <ul class="text-foreground space-y-1 ml-4">
+        <li>✓ Your color system is working correctly</li>
+        <li>✓ All Tailwind utilities (bg-*, text-*, border-*) are functional</li>
+        <li>✓ Opacity modifiers (/50, /80, etc.) are working</li>
+        <li>✓ You can safely delete this test page</li>
+      </ul>
+    </section>
+
+    <div class="mt-8 bg-info/10 border-l-4 border-info p-6 rounded">
+      <p class="text-info font-bold mb-2">Next Steps:</p>
+      <ol class="text-foreground list-decimal ml-6 space-y-1">
+        <li>Verify all colors match your brand</li>
+        <li>Check <code class="bg-surface px-2 py-1 rounded">COLOR_SYSTEM.md</code> for usage examples</li>
+        <li>Delete this test page: <code class="bg-surface px-2 py-1 rounded">src/pages/test-colors.astro</code></li>
+      </ol>
+    </div>
+  </div>
+</BaseLayout>
