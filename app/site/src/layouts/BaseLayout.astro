@@ -22,7 +22,7 @@ interface Props {
 }
 
 const {
-  title = 'Site Title - Your Tagline Here',
+  title = 'KAMICO',
   description = 'Your site description goes here. This will appear in search results and social media previews.',
   image = '/og-image.jpg'
 } = Astro.props;
@@ -66,6 +66,15 @@ const {
   </head>
 
   <body class="antialiased relative overflow-x-hidden">
+    <div class="absolute lg:top-40 top-1/2 left-10 text-[150px] flex flex-col gap-8 text-primary/5">
+      <p>K</p>
+      <p>A</p>
+      <p>M</p>
+      <p>I</p>
+      <p>&</p>
+      <p>C</p>
+      <p>O</p>
+    </div>
     <Header />
     <main class="overflow-x-hidden">
       <slot />

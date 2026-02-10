@@ -1,24 +1,69 @@
 ---
+import Button from "../ui/Button.astro";
+import DotPattern from "../ui/DotPattern.astro";
+
 
 ---
 
 <!-- Hero Section -->
-<section id="hero" class="min-h-screen flex items-center justify-center bg-background text-foreground relative overflow-hidden">
-  <!-- Cyan accent gradient overlay -->
-  <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none"></div>
-
-  <div class="container mx-auto px-4 text-center relative z-10">
-    <h1 class="text-4xl md:text-6xl font-bold mb-6 fade-in-up bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent">
-      Welcome to Your Site
+<section id="hero" class="lg:min-h-screen flex flex-col text-foreground relative overflow-hidden lg:space-y-0 space-y-16">
+  <div class="lg:w-[80%] mx-auto lg:pt-32 pt-24 px-6 relative z-10 space-y-6 fade-in-up stagger-1 lg:text-left text-center">
+    <DotPattern class="lg:right-30 right-0 lg:top-20 -top-10 lg:!h-60 lg:!w-70 !z-1 fade-in-right" />
+    <div class="absolute right-80 top-40 lg:h-50 lg:w-50 h-0 w-0 lg:border-2 border-primary/80 fade-in-up"/>
+    <div class="absolute right-60 top-60 lg:h-80 lg:w-50 h-0 w-0 lg:border-2 border-primary/80 fade-in-up"/>
+    <h1 class="text-4xl md:text-8xl font-medium lg:w-3xl uppercase">
+      <span class="gradient-text">Showcase</span>
+      Your Business to the World
     </h1>
-    <p class="text-xl max-w-2xl mx-auto mb-8 text-muted fade-in-up stagger-1">
-      A brief tagline or description of what you offer goes here.
+    <p class="text-lg max-w-2xl text-white/70">
+      <span class="gradient-text">Kami & Co</span>
+      creates clean, fast, and professional websites that turn your services into a powerful online presence, helping customers
+      find you, trust you, and choose you.
     </p>
-    <a
-      href="#contact"
-      class="inline-block bg-primary text-black px-8 py-3 rounded-lg font-semibold hover:bg-primary-hover hover:scale-105 transition-all duration-300 fade-in-up stagger-2 shadow-lg shadow-primary/50"
-    >
-      Get Started
-    </a>
+    <div class="flex lg:justify-start justify-center">
+      <Button text="Learn More" href="#services"/>
+    </div> 
+  </div>
+  <div class="lg:w-[80%] mx-auto px-6 relative z-10 text-right flex flex-col items-end">
+    <div class="flex flex-col gap-2 items-center">
+      <h2 class="text-lg md:text-xl font-medium fade-in-up stagger-2 uppercase">
+        Our <span class="gradient-text">Socials</span>
+      </h2>
+      <div class="flex gap-2 fade-in-up stagger-3">
+        <a
+          href="https://www.facebook.com/KamiAndCo/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+        >
+          <i class="fa-brands fa-facebook-f z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+          <span
+            class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-br from-[#1877F2] to-[#42A5F5]"
+          ></span>
+        </a>
+        <a
+          href="https://www.instagram.com/contact.kamico/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+        >
+          <i class="fa-brands fa-instagram z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+          <span
+            class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]"
+          ></span>
+        </a>
+        <a
+          href="mailto:contact.kamico@gmail.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+        >
+          <i class="fa-brands fa-google z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+          <span
+            class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-r from-[#EA4335] via-[#ff7a7a] to-[#4285F4]"
+          ></span>
+        </a>
+      </div>
+    </div>
   </div>
 </section>

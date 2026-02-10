@@ -1,0 +1,6 @@
+---
+// Accept a `class` prop so you can override styles
+const { class: extraClass = '' } = Astro.props;
+---
+
+<div class={`w-40 h-30 bg-[radial-gradient(circle,#06B6D4_1px,transparent_1px)] bg-[length:13px_13px] absolute ${extraClass}`}></div>

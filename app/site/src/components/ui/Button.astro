@@ -1,0 +1,22 @@
+---
+interface Props {
+  text?: string;
+  href?: string;
+  class?: string;
+}
+
+const { text = "Get Started", href, class: className } = Astro.props;
+const baseClasses = `inline-block bg-primary/40 border border-primary-light shadow-[0_0_8px_1px_#06b6d4] backdrop-blur-md text-white px-8 py-3 
+                      rounded-lg hover:scale-105 transition-all duration-500 tracking-wider uppercase lg:text-base text-sm`;
+const buttonClasses = className ? `${baseClasses} ${className}` : baseClasses;
+---
+
+{href ? (
+  <a href={href} class={buttonClasses}>
+    {text}
+  </a>
+) : (
+  <button class={buttonClasses}>
+    {text}
+  </button>
+)}

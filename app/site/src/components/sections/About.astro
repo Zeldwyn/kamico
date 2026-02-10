@@ -1,13 +1,82 @@
 ---
+import DotPattern from '../ui/DotPattern.astro';
 
+const values = [
+  {
+    title: 'Curiosity',
+    description: 'We explore, experiment, and always ask “what if?” to keep learning and innovating.',
+    image: '/images/about/curiosity.png',
+  },
+  {
+    title: 'Growth',
+    description: 'We embrace challenges and failure as opportunities to improve and evolve.',
+    image: '/images/about/trend.png',
+  },
+  {
+    title: 'Service-First',
+    description: 'Helping clients achieve their goals with practical solutions.',
+    image: '/images/about/service-first.png',
+  },
+  {
+    title: 'Collaboration',
+    description: 'We believe teamwork and shared ideas drive better outcomes.',
+    image: '/images/about/collaboration.png',
+  },
+];
 ---
 
 <!-- About Section -->
-<section id="about" class="py-20 bg-white">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in-up">About Us</h2>
-    <div class="max-w-3xl mx-auto text-center text-gray-600 fade-in-up stagger-1">
-      <p>Add your about section content here. Describe your business, mission, or value proposition.</p>
+<section id="about" class="py-20 relative space-y-16">
+  <div class="max-w-7xl mx-auto px-6 flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 relative">
+    <DotPattern class="-left-10 lg:-top-10 top-100 lg:!h-50 !h-20 !w-70 !z-1 fade-in-left" />
+    <div class="lg:w-[40%] flex items-center justify-center z-2 relative">
+      <!-- Bottom line -->
+      <div class="absolute -bottom-4 -right-4 lg:h-0.5 lg:w-16 h-0 w-0 bg-accent translate-x-1 translate-y-1"></div>
+
+      <!-- Right line -->
+      <div class="absolute -bottom-4 -right-4 lg:w-0.5 lg:h-16 h-0 w-0 bg-accent translate-x-1 translate-y-1"></div>
+      <div>
+        <img src="/images/about/computer.jpg" alt="about" class="lg:h-[700px] h-[350px] fade-in-left" />
+      </div>
+    </div>
+    <div class="lg:w-[50%] mx-auto px-4 relative z-10 lg:space-y-6 space-y-4 fade-in-up stagger-1">
+      <div
+        class="lg:mb-2 mb-0 font-black bg-gradient-to-r from-primary via-primary-light to-secondary/40 bg-clip-text text-transparent"
+      >
+        <p>ABOUT US</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-medium lg:w-xl uppercase">
+        driven by <span class="lg:text-7xl text-5xl gradient-text">Curiosity</span>
+      </h2>
+      <p class="lg:text-base text-sm lg:max-w-2xl text-white/70">
+        We’re a small startup team of friends who began in college, united by curiosity and a shared passion for
+        business. We’re eager to learn through real-world experience and hands-on projects. <br />
+        <br /> We embrace <span class="gradient-text uppercase">failure</span> as part of growth — testing ideas quickly,
+        learning from every attempt, and improving along the way. Guided by a service-first mindset, we love experimenting,
+        exploring new possibilities, and creating solutions that help businesses thrive. <br /><br /><span
+          class="gradient-text uppercase">curiosity</span
+        > drives everything we do, and we’re committed to continuous learning and evolution. Explore our services and grow
+        with us.
+      </p>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:gap-16 gap-8 items-center justify-center relative">
+    <DotPattern class="-right-10 lg:-top-20 -top-10 lg:!h-30 lg:!w-70 !w-40 !h-16 !z-1 fade-in-left" />
+    <h2 class="text-2xl md:text-4xl font-medium fade-in-up stagger-2 uppercase z-1">
+      What we <span class="gradient-text">stand</span> for
+    </h2>
+    <div class="grid md:grid-cols-4 lg:gap-6">
+      {
+        values.map((item, index) => (
+          <div class={`space-y-4 relative p-4 group rounded-3xl overflow-hidden group cursor-default fade-in-up stagger-${index + 1}`}>
+            <div class="flex items-center gap-4">
+              <img src={item.image} alt={item.title} class="lg:w-12 lg:h-12 w-6 h-6 group-hover:-rotate-12 group-hover:scale-110 duration-500" />
+              <h3 class="lg:text-xl text-base font-medium">{item.title}</h3>
+            </div>
+            <p class="lg:text-sm text-xs pl-1 pb-4">{item.description}</p>
+          </div>
+        ))
+      }
     </div>
   </div>
 </section>

@@ -7,40 +7,148 @@
  */
 
 const navLinks = [
-  { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
   { href: '#contact', label: 'Contact' },
+  { href: '#about', label: 'About' },
+  { href: '#hero', label: 'Home' },
 ];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm">
-  <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+<section class="fixed top-0 left-0 right-0 z-50">
+  <nav class="max-w-[90%] mx-auto lg:px-4 lg:pt-10 pt-4 px-2 flex items-start justify-between">
     <!-- Logo / Brand -->
-    <a href="/" class="text-xl font-bold text-gray-900">
+    <a
+      href="/"
+      class="text-4xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
+    >
       <!-- Replace with your logo -->
-      YourBrand
+      KAMICO
     </a>
 
-    <!-- Navigation Links -->
-    <ul class="hidden md:flex items-center gap-8">
-      {navLinks.map((link) => (
-        <li>
-          <a
-            href={link.href}
-            class="text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            {link.label}
-          </a>
-        </li>
-      ))}
+    <!-- Desktop Navigation Links -->
+    <ul class="hidden lg:flex flex-col gap-1 items-end">
+      {
+        navLinks.map((link,index) => (
+          <li class={`fade-in-left stagger-${index + 1}`}>
+            <div class="hover:-translate-x-2 duration-500">
+              <a
+                href={link.href}
+                class="bg-gradient-to-r from-primary-light via-primary-light/80 to-primary-light/70 bg-clip-text text-transparent hover:text-primary-light duration-500 text-3xl font-medium"
+              >
+                {link.label}
+              </a>
+            </div>
+          </li>
+        ))
+      }
     </ul>
 
-    <!-- Mobile Menu Button (implement toggle logic as needed) -->
-    <button class="md:hidden p-2" aria-label="Toggle menu">
-      <i class="fas fa-bars text-xl"></i>
+    <!-- Mobile Menu Button -->
+    <button id="hamburger-btn" class="md:hidden py-2" aria-label="Toggle menu">
+      <i class="fas fa-bars text-xl bg-gradient-to-r from-primary-light via-primary-light/80 to-primary-light bg-clip-text text-transparent"></i>
     </button>
   </nav>
-</header>
+</section>
+
+<!-- Mobile Navigation Panel -->
+<nav
+  id="main-nav"
+  class="fixed top-0 right-0 bottom-0 w-64 bg-black/70 backdrop-blur-md shadow-lg z-50 transform translate-x-full transition-transform duration-300 ease-in-out data-[open]:translate-x-0"
+>
+  <div class="flex flex-col h-full">
+    <!-- Close Button -->
+    <div class="flex justify-end p-4">
+      <button id="nav-close" class="p-2" aria-label="Close menu">
+        <i class="fas fa-times text-xl text-primary"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <ul class="flex flex-col items-end px-8 py-2 space-y-4">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.href} class="nav-season-link block text-primary hover:text-gray-900 transition-colors py-2">
+              {link.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</nav>
+
+<!-- Mobile Menu Backdrop -->
+<div
+  id="nav-backdrop"
+  class="fixed inset-0 bg-black/50 z-40 opacity-0 pointer-events-none transition-opacity duration-300 data-[open]:opacity-100 data-[open]:pointer-events-auto"
+>
+</div>
 
 <!-- Spacer for fixed header -->
 <div class="h-16"></div>
+
+<script>
+  const hamburger = document.getElementById('hamburger-btn')!;
+  const nav = document.getElementById('main-nav')!;
+  const backdrop = document.getElementById('nav-backdrop')!;
+  const closeBtn = document.getElementById('nav-close')!;
+
+  function openNav() {
+    nav.dataset.open = '';
+    backdrop.dataset.open = '';
+    hamburger.classList.add('hidden');
+  }
+
+  function closeNav() {
+    delete nav.dataset.open;
+    delete backdrop.dataset.open;
+    nav.addEventListener(
+      'transitionend',
+      () => {
+        hamburger.classList.remove('hidden');
+      },
+      { once: true }
+    );
+  }
+
+  hamburger.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+  backdrop.addEventListener('click', closeNav);
+
+  // Close mobile nav when clicking a season link
+  document.querySelectorAll('.nav-season-link').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth < 1024) closeNav();
+    });
+  });
+
+  // Existing nav toggle logic
+  document.querySelectorAll('.nav-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const group = btn.closest('.nav-group')!;
+      const dropdown = group.querySelector('.nav-dropdown')!;
+      const chevron = btn.querySelector('.fa-chevron-down')!;
+      const isOpen = dropdown.hasAttribute('data-open');
+
+      // Close all other dropdowns
+      document.querySelectorAll('.nav-group').forEach((g) => {
+        if (g !== group) {
+          g.querySelector('.nav-dropdown')!.removeAttribute('data-open');
+          g.querySelector('.fa-chevron-down')!.classList.remove('rotate-180');
+          g.querySelector('.nav-toggle')!.removeAttribute('data-open');
+        }
+      });
+
+      if (isOpen) {
+        dropdown.removeAttribute('data-open');
+        chevron.classList.remove('rotate-180');
+        btn.removeAttribute('data-open');
+      } else {
+        dropdown.setAttribute('data-open', '');
+        chevron.classList.add('rotate-180');
+        btn.setAttribute('data-open', '');
+      }
+    });
+  });
+</script>
