@@ -3,11 +3,15 @@ interface Props {
   text?: string;
   href?: string;
   class?: string;
+  type?: 'button' | 'submit' | 'reset';
+  disabled?: boolean;
+  id?: string;
 }
 
-const { text = "Get Started", href, class: className } = Astro.props;
-const baseClasses = `inline-block bg-primary/40 border border-primary-light shadow-[0_0_8px_1px_#06b6d4] backdrop-blur-md text-white px-8 py-3 
-                      rounded-lg hover:scale-105 transition-all duration-500 tracking-wider uppercase lg:text-base text-sm`;
+const { text = "Get Started", href, class: className, type = "button", disabled = false, id } = Astro.props;
+const baseClasses = `inline-block bg-primary/40 border border-primary-light shadow-[0_0_8px_1px_#06b6d4] backdrop-blur-md text-white px-8 py-3
+                      rounded-lg hover:scale-105 transition-all duration-500 tracking-wider uppercase lg:text-base text-xs
+                      disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none`;
 const buttonClasses = className ? `${baseClasses} ${className}` : baseClasses;
 ---
 
@@ -16,7 +20,7 @@ const buttonClasses = className ? `${baseClasses} ${className}` : baseClasses;
     {text}
   </a>
 ) : (
-  <button class={buttonClasses}>
+  <button type={type} disabled={disabled} id={id} class={buttonClasses}>
     {text}
   </button>
 )}

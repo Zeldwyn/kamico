@@ -1,4 +1,5 @@
 ---
+import Button from '../ui/Button.astro';
 import DotPattern from '../ui/DotPattern.astro';
 
 const values = [
@@ -23,13 +24,35 @@ const values = [
     image: '/images/about/collaboration.png',
   },
 ];
+
+const steps = [
+  {
+    title: 'Understand',
+    description: 'We learn about your business, service, and goals. Just the essentials — no long discovery calls.',
+  },
+  {
+    title: 'Plan Together',
+    description:
+      'We plan the website with you — scope, features, page sections, and content needs. We map out how and when content will be provided so everything is crystal clear before we build.',
+  },
+  {
+    title: 'Build & Preview',
+    description:
+      "We start building immediately and share live previews early. You get updates daily or every 1–2 days (as agreed), feedback is applied as we go, and you're involved — not waiting.",
+  },
+  {
+    title: 'QA & Final Review',
+    description:
+      'We test the site for layout and responsiveness, content accuracy, performance, and basic SEO. Final tweaks are made before launch to ensure everything is polished and ready.',
+  },
+];
 ---
 
 <!-- About Section -->
-<section id="about" class="py-20 relative space-y-16">
+<section id="about" class="lg:py-20 py-8 relative space-y-16">
   <div class="max-w-7xl mx-auto px-6 flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 relative">
-    <DotPattern class="-left-10 lg:-top-10 top-100 lg:!h-50 !h-20 !w-70 !z-1 fade-in-left" />
-    <div class="lg:w-[40%] flex items-center justify-center z-2 relative">
+    <DotPattern class="-left-10 lg:-top-10 top-10 lg:!h-50 !h-20 !w-40 !z-1 fade-in-left" />
+    <div class="lg:w-[40%] lg:flex hidden items-center justify-center z-2 relative">
       <!-- Bottom line -->
       <div class="absolute -bottom-4 -right-4 lg:h-0.5 lg:w-16 h-0 w-0 bg-accent translate-x-1 translate-y-1"></div>
 
@@ -60,23 +83,81 @@ const values = [
       </p>
     </div>
   </div>
-  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:gap-16 gap-8 items-center justify-center relative">
+ 
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:gap-16 gap-8 items-center justify-center relative py-8">
     <DotPattern class="-right-10 lg:-top-20 -top-10 lg:!h-30 lg:!w-70 !w-40 !h-16 !z-1 fade-in-left" />
     <h2 class="text-2xl md:text-4xl font-medium fade-in-up stagger-2 uppercase z-1">
       What we <span class="gradient-text">stand</span> for
     </h2>
-    <div class="grid md:grid-cols-4 lg:gap-6">
+    <!-- ${index % 2 === 0 ? 'mt-6' : ''} -->
+    <div class="grid md:grid-cols-2 lg:gap-8 max-w-5xl">
       {
         values.map((item, index) => (
-          <div class={`space-y-4 relative p-4 group rounded-3xl overflow-hidden group cursor-default fade-in-up stagger-${index + 1}`}>
-            <div class="flex items-center gap-4">
-              <img src={item.image} alt={item.title} class="lg:w-12 lg:h-12 w-6 h-6 group-hover:-rotate-12 group-hover:scale-110 duration-500" />
-              <h3 class="lg:text-xl text-base font-medium">{item.title}</h3>
+          <div
+            class={`max-w-md relative space-y-4 flex items-center gap-8 p-4 group rounded-3xl group cursor-default fade-in-up stagger-${index + 1} `}
+          >
+            <img
+              src={item.image}
+              alt={item.title}
+              class="lg:w-12 lg:h-12 w-6 h-6 group-hover:-rotate-12 group-hover:scale-120 duration-500"
+            />
+            <div class="flex flex-col items-start gap-2">
+              <h3 class="lg:text-xl text-base font-bold group-hover:text-primary-light duration-500">{item.title}</h3>
+              <p class="lg:text-sm text-xs">{item.description}</p>
             </div>
-            <p class="lg:text-sm text-xs pl-1 pb-4">{item.description}</p>
           </div>
         ))
       }
+    </div>
+  </div>
+
+  <!-- banner -->
+  <div class="px-6 z-1">
+    <div
+      class="relative flex flex-col items-center justify-center lg:w-5xl mx-auto shadow-[0_0_4px_1px_#06b6d4]
+            rounded-sm overflow-hidden lg:py-16 p-4 bg-[url('/images/about/banner.webp')] bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-background/70 to-background/50 pointer-events-none backdrop-blur-xs"
+      >
+      </div>
+      <div class="mb-2 font-black gradient-text z-1">
+        <p>HIRE US NOW</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-bold lg:w-xl uppercase text-center mb-8 z-1">
+        Let’s Build<span class="gradient-text"> Something Great </span>Together
+      </h2>
+      <Button text="Contact Us" href="#contact"/>
+    </div>
+  </div>
+
+  <div class="max-w-7xl mx-auto px-6 flex flex-col lg:gap-16 gap-8 items-center justify-center relative py-8">
+    <!-- <DotPattern class="-left-10 lg:-top-10 -top-10 lg:!h-30 lg:!w-70 !w-40 !h-16 !z-1 fade-in-left" /> -->
+    <h2 class="text-2xl md:text-4xl font-medium fade-in-up stagger-2 uppercase z-1">
+      our working <span class="gradient-text">process</span>
+    </h2>
+    <div class="relative w-full max-w-5xl mx-auto">
+      <!-- Horizontal gradient line -->
+      <!-- <div class="hidden md:block absolute top-[48px] lg:top-[60px] left-[10%] right-[10%] h-1 bg-gradient-to-r from-primary via-secondary to-primary rounded-full fade-in-up"></div> -->
+
+      <!-- Steps -->
+      <div class="grid lg:grid-cols-1 lg:gap-4 gap-2 relative z-10">
+        {
+          steps.map((item, index) => (
+            <div class={`fade-in-up stagger-${index + 1}`}>
+              <div
+                class={`flex-1 flex lg:flex-row flex-col gap-4 justify-between lg:items-center items-start relative p-6 py-8 group rounded-xl w-full mx-auto 
+              overflow-hidden cursor-default  border-b border-primary-light/60
+              hover:translate-x-2 duration-500 hover:shadow-[0_0_8px_1px_#06b6d4]`}
+              >
+                <p class="text-4xl lg:text-6xl font-bold text-primary/40 flex-shrink-0">0{index + 1}</p>
+                <h3 class="lg:text-2xl text-lg font-semibold gradient-text">{item.title}</h3>
+                <p class="text-xs lg:text-sm text-muted leading-relaxed lg:w-lg">{item.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
     </div>
   </div>
 </section>

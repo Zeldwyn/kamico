@@ -24,9 +24,8 @@ interface Props {
 const {
   title = 'KAMICO',
   description = 'Your site description goes here. This will appear in search results and social media previews.',
-  image = '/og-image.jpg'
+  image = '/og-image.jpg',
 } = Astro.props;
-
 ---
 
 <!doctype html>
@@ -65,18 +64,18 @@ const {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   </head>
 
-  <body class="antialiased relative overflow-x-hidden">
-    <div class="absolute lg:top-40 top-1/2 left-10 text-[150px] flex flex-col gap-8 text-primary/5">
-      <p>K</p>
-      <p>A</p>
-      <p>M</p>
-      <p>I</p>
-      <p>&</p>
-      <p>C</p>
-      <p>O</p>
+  <body class="antialiased relative overflow-x-hidden overflow-hidden">
+    <div class="absolute top-20 left-10 flex flex-col gap-8 text-[150px] text-primary/5 z-0">
+      {
+        Array(4) // number of times you want it to repeat
+          .fill(['K', 'A', 'M', 'I', '&', 'C', 'O', '.'])
+          .flat()
+          .map((letter) => <p>{letter}</p>)
+      }
     </div>
+
     <Header />
-    <main class="overflow-x-hidden">
+    <main class="overflow-x-hidden z-1">
       <slot />
     </main>
     <Footer />

@@ -1,20 +1,176 @@
 ---
-
+import Button from '../ui/Button.astro';
+import Input from '../ui/Input.astro';
+import Textarea from '../ui/Textarea.astro';
 ---
 
 <!-- Contact Section -->
-<section id="contact" class="py-20">
-  <div class="container mx-auto px-4">
-    <h2 class="text-3xl md:text-4xl font-bold text-center mb-12 fade-in-up">Contact Us</h2>
-    <div class="max-w-xl mx-auto text-center fade-in-up stagger-1">
-      <p class="text-gray-600 mb-8">Ready to get started? Reach out to us today.</p>
-      <!-- Add contact form, email, or embedded form here -->
-      <a
-        href="mailto:hello@example.com"
-        class="inline-block bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-colors"
-      >
-        Email Us
-      </a>
+<section id="contact" class="lg:py-20 py-8">
+  <div class="max-w-6xl mx-auto px-6 flex flex-col gap-4">
+    <div class="flex lg:flex-row flex-col-reverse gap-8 w-full justify-between fade-in-up">
+      <div class="flex flex-col w-full">
+        <div
+          class="mb-2 font-black bg-gradient-to-r from-primary via-primary-light to-secondary/40 bg-clip-text text-transparent"
+        >
+          <p>CONTACT US</p>
+        </div>
+        <h2 class="text-2xl md:text-4xl font-medium lg:w-lg uppercase">
+          Your Project Starts With a
+          <span class="bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent"
+            >Conversation</span
+          >
+        </h2>
+      </div>
+
+      <div class="lg:w-[50%] mx-auto px-4 relative z-10 space-y-6 fade-in-up flex items-center justify-end">
+        <div
+          class="text-right text-6xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
+        >
+          <!-- Replace with your logo -->
+          KAMICO
+        </div>
+      </div>
+    </div>
+
+    <div class="flex lg:flex-row flex-col gap-8 w-full">
+      <div class="lg:w-[50%] relative z-10 space-y-6 fade-in-up">
+        <div id="form-message" class="hidden mb-4 p-4 rounded-lg"></div>
+
+        <form id="contact-form" class="max-w-2xl space-y-3" autocomplete="off">
+          <div class="grid md:grid-cols-2 gap-3">
+            <Input type="text" name="firstName" label="First Name" required />
+            <Input type="text" name="lastName" label="Last Name" required />
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-3">
+            <Input type="email" name="email" label="Email Address" required />
+            <Input type="tel" name="phone" label="Contact Number" required />
+          </div>
+
+          <Input type="text" name="location" label="Location" required />
+
+          <Input type="text" name="subject" label="Subject" required />
+
+          <Textarea name="message" label="Your Message" rows={5} required />
+
+          <!-- Honeypot field for spam protection (hidden from users) -->
+          <input type="text" name="honeypot" tabindex="-1" autocomplete="off" class="hidden" />
+
+          <div class="flex items-start gap-3 mb-4">
+            <input
+              type="checkbox"
+              id="consent"
+              required
+              class="mt-0.5 w-4 h-4 rounded border-white/10 bg-black/40 focus:ring-primary"
+            />
+            <label for="consent" class="lg:text-sm text-xs text-white/70">
+              I consent to the processing of my personal data for the purpose of responding to my inquiry.
+            </label>
+          </div>
+
+          <Button id="submit-btn" type="submit" disabled text="Submit" class="w-full" />
+        </form>
+      </div>
+      <div class="lg:w-[50%] w-full lg:px-4 relative z-10 fade-in-up">
+        <div class="relative flex flex-col justify-between w-full rounded-3xl overflow-hidden lg:p-6 p-4">
+          <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/10 pointer-events-none"></div>
+
+          <div class="p-4 space-y-2">
+            <p class="lg:text-xl text-base gradient-text">Location</p>
+            <p class="text-muted lg:text-base text-sm ">Cebu City Philippines, 6000</p>
+          </div>
+
+          <div class="p-4 space-y-2">
+            <p class="lg:text-xl gradient-text">Contact</p>
+            <p class="text-muted lg:text-base text-sm">Whatsapp: 
+              <a href="https://wa.me/639193625924" target="_blank" rel="noopener noreferrer" class="hover:text-primary-light duration-500">
+                +63 919 362 5924
+              </a>
+            </p>
+            <p class="text-muted lg:text-base text-sm">Telegram: 
+              <a href="https://t.me/zeldwyn" target="_blank" rel="noopener noreferrer" class="hover:text-primary-light duration-500">
+                @zeldwyn
+              </a>
+            </p>
+            <p class="text-muted lg:text-base text-sm">Email: 
+              <a href="mailto:contact.kamico@gmail.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary-light duration-500">
+                contact.kamico@gmail.com
+              </a>
+            </p>
+          </div>
+
+          <div class="p-4 space-y-2">
+            <p class="lg:text-xl gradient-text">Stay Connected</p>
+            <p class="text-muted lg:text-base text-sm">Facebook: 
+              <a href="https://www.facebook.com/KamiAndCo" target="_blank" rel="noopener noreferrer" class="hover:text-primary-light duration-500">
+              KamiAndCo
+            </a>
+          </p>
+            <p class="text-muted lg:text-base text-sm">Instagram: 
+              <a href="https://www.instagram.com/contact.kamico/" target="_blank" rel="noopener noreferrer" class="hover:text-primary-light duration-500">
+              contact.kamico
+            </a>
+          </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
+
+<script>
+  import { contactService } from '../../lib/contactService';
+  import type { ContactRequest } from '../../types/contact';
+
+  const form = document.querySelector('#contact-form') as HTMLFormElement;
+  const messageDiv = document.querySelector('#form-message') as HTMLDivElement;
+  const submitButton = document.querySelector('#submit-btn') as HTMLButtonElement;
+  const consentCheckbox = document.querySelector('#consent') as HTMLInputElement;
+
+  consentCheckbox.addEventListener('change', () => {
+    submitButton.disabled = !consentCheckbox.checked;
+  });
+
+  function showMessage(text: string, isSuccess: boolean) {
+    messageDiv.textContent = text;
+    messageDiv.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+    if (isSuccess) {
+      messageDiv.classList.add('bg-green-100', 'text-green-800');
+    } else {
+      messageDiv.classList.add('bg-red-100', 'text-red-800');
+    }
+  }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+
+    const payload: ContactRequest = {
+      first_name: formData.get('firstName') as string,
+      last_name: formData.get('lastName') as string,
+      email: formData.get('email') as string,
+      phone: formData.get('phone') as string,
+      location: formData.get('location') as string,
+      subject: formData.get('subject') as string,
+      message: formData.get('message') as string,
+      honeypot: (formData.get('honeypot') as string) || '',
+    };
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending...';
+
+    try {
+      const result = await contactService.sendInquiry(payload);
+      showMessage(result.message || 'Thank you! Your message has been sent.', true);
+      form.reset();
+      submitButton.disabled = true;
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Something went wrong. Please try again.';
+      showMessage(errorMessage, false);
+      submitButton.disabled = !consentCheckbox.checked;
+    } finally {
+      submitButton.textContent = 'Submit';
+    }
+  });
+</script>
