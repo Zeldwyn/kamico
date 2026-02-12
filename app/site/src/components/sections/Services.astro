@@ -1,11 +1,13 @@
 ---
+import Button from "../ui/Button.astro";
+
 
 ---
 
 <!-- Services Section -->
 <section id="services" class="lg:py-20 py-16">
   <div class="max-w-7xl mx-auto px-6 flex lg:flex-row flex-col lg:gap-0 gap-8">
-    <div class="lg:w-[50%] mx-auto pt-32 px-4 relative z-10 space-y-6 fade-in-up stagger-1">
+    <div class="lg:w-[50%] mx-auto pt-32 px-4 relative z-10 space-y-6 fade-in-left">
       <div
         class="mb-2 font-black bg-gradient-to-r from-primary via-primary-light to-secondary/40 bg-clip-text text-transparent"
       >
@@ -28,7 +30,7 @@
     <div class="flex-1 flex lg:flex-row flex-col items-center justify-center gap-6 w-fit">
       <div class="flex flex-col lg:gap-6 gap-4 lg:pb-10">
         <!-- First card -->
-        <div class="fade-in-up">
+        <div class="fade-in-right">
           <a
             href="/services/single-page-website"
             class="lg:rounded-tl-3xl relative overflow-hidden h-75 lg:w-75 bg-black/40 border-2 border-background/10 lg:p-4 p-6 flex flex-col justify-between group hover:translate-y-1 hover:translate-x-1 duration-500"
@@ -59,7 +61,7 @@
             </div>
           </a>
         </div>
-        <div class="fade-in-up">
+        <div class="fade-in-right">
           <a
             href="/services/multi-page-website"
             class="lg:rounded-bl-3xl relative overflow-hidden h-75 lg:w-75 bg-black/40 border-2 border-background/10 lg:p-4 p-6 flex flex-col justify-between group hover:translate-y-1 hover:translate-x-1 duration-500"
@@ -95,7 +97,7 @@
 
       <div class="flex flex-col lg:gap-6 gap-4">
         <!-- Third card -->
-        <div class="fade-in-up">
+        <div class="fade-in-right">
           <a
             href="/services/gta-mods"
             class="lg:rounded-tr-3xl relative overflow-hidden h-75 lg:w-75 bg-black/40 border-2 border-background/10 lg:p-4 p-6 flex flex-col justify-between group hover:translate-y-1 hover:translate-x-1 duration-500"
@@ -127,7 +129,7 @@
           </a>
         </div>
         <!-- Fourth card -->
-        <div class="fade-in-up">
+        <div class="fade-in-right">
           <a
             href="/services/food-venture"
             class="lg:rounded-br-3xl relative overflow-hidden h-75 lg:w-75 bg-black/40 border-2 border-background/10 lg:p-4 p-6 flex flex-col justify-between group hover:translate-y-1 hover:translate-x-1 duration-500"
@@ -159,6 +161,27 @@
           </a>
         </div>
       </div>
+    </div>
+  </div>
+
+   <!-- banner -->
+  <div class="px-6 z-1 py-16">
+    <div
+      class="relative flex flex-col items-center justify-center lg:w-6xl px-6 mx-auto shadow-[0_0_4px_1px_#06b6d4]
+            rounded-sm overflow-hidden lg:py-16 p-4 bg-[url('/images/about/banner.webp')] bg-cover bg-center"
+    >
+      <div
+        class="absolute inset-0 bg-gradient-to-br from-background/70 to-background/50 pointer-events-none backdrop-blur-xs"
+      >
+      </div>
+      <div class="mb-2 font-black gradient-text z-1">
+        <p>HIRE US NOW</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-bold lg:w-xl uppercase text-center mb-8 z-1">
+        Let’s Build<span class="gradient-text"> Something Great </span>Together
+      </h2>
+      <!-- <Button text="Contact Us" href="#contact" /> -->
+      <Button text="Contact Us" href="#contact"/>
     </div>
   </div>
 </section>

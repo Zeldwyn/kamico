@@ -9,47 +9,95 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-gray-900 text-white py-12 z-1">
-  <div class="container mx-auto px-4">
+<footer class="bg-transparent text-white py-16 z-1 px-6">
+  <div class="max-w-7xl mx-auto p-8 rounded-xl bg-black/20 backdrop-blur-xs shadow-[0_0_4px_0px_#06b6d4] fade-in-up relative">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand / About -->
-      <div>
-        <h3 class="text-xl font-bold mb-4">YourBrand</h3>
-        <p class="text-gray-400">
-          Brief description of your business or service goes here.
+      <div class="flex-1 space-y-2">
+        <div
+          class="text-6xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
+        >
+          <!-- Replace with your logo -->
+          KAMICO
+        </div>
+        <p class="text-muted">
+          Kami & Co delivers clean, effective websites and digital services built for growth and visibility.
         </p>
       </div>
 
       <!-- Quick Links -->
-      <div>
-        <h4 class="font-semibold mb-4">Quick Links</h4>
-        <ul class="space-y-2 text-gray-400">
-          <li><a href="#about" class="hover:text-white transition-colors">About</a></li>
-          <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
-          <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+      <div class="flex-1 flex flex-col items-start lg:pl-24">
+        <h4 class="font-bold mb-2">Quick Links</h4>
+        <ul class="space-y-2 text-muted lg:text-base">
+          {
+            [
+              { label: 'Home', href: '/#hero' },
+              { label: 'Services', href: '/#services' },
+              { label: 'About', href: '/#about' },
+              { label: 'Contact', href: '/#contact' },
+            ].map((item, index) => (
+              <li>
+                <a
+                  href={item.href}
+                  class="text-nowrap text-muted font-medium hover:text-primary-light hover:translate-x-2 duration-500 inline-flex items-center gap-x-2 group text-sm
+                before:content-['▸'] before:absolute before:-left-4 before:opacity-0 hover:before:opacity-100 before:text-primary-light before:transition-opacity"
+                >
+                  {item.label}
+                </a>
+              </li>
+            ))
+          }
         </ul>
       </div>
 
       <!-- Contact / Social -->
-      <div>
-        <h4 class="font-semibold mb-4">Connect</h4>
-        <div class="flex gap-4 text-gray-400">
-          <a href="#" class="hover:text-white transition-colors" aria-label="Facebook">
-            <i class="fab fa-facebook text-xl"></i>
+      <div class="flex-1 flex flex-col justify-between">
+        <h4 class="font-semibold">Get in Touch</h4>
+        <p class="text-muted w-2xs">We'd love to hear from you, let's make something amazing!</p>
+        <div class="flex gap-4 text-muted text-3xl">
+          <a
+            href="https://www.facebook.com/KamiAndCo/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+          >
+            <i class="fa-brands fa-facebook-f z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+            <span
+              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-br from-[#1877F2] to-[#42A5F5]"
+            ></span>
           </a>
-          <a href="#" class="hover:text-white transition-colors" aria-label="Instagram">
-            <i class="fab fa-instagram text-xl"></i>
+          <a
+            href="https://www.instagram.com/contact.kamico/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+          >
+            <i class="fa-brands fa-instagram z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+            <span
+              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]"
+            ></span>
           </a>
-          <a href="#" class="hover:text-white transition-colors" aria-label="Twitter">
-            <i class="fab fa-twitter text-xl"></i>
+          <a
+            href="mailto:contact.kamico@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+          >
+            <i class="fa-brands fa-google z-2 group-hover:rotate-y-360 transition-all duration-700"></i>
+            <span
+              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-r from-[#EA4335] via-[#ff7a7a] to-[#4285F4]"
+            ></span>
           </a>
         </div>
       </div>
     </div>
 
     <!-- Copyright -->
-    <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-      <p>&copy; {currentYear} YourBrand. All rights reserved.</p>
+    <div
+      class="border-t-1 border-primary/60 pt-6 mt-8 text-center text-muted lg:w-3xl mx-auto flex items-center justify-center text-base"
+    >
+      <p>Copyright {currentYear} <span class="gradient-text">Kami&Co</span>. All rights reserved.</p>
     </div>
   </div>
 </footer>
+

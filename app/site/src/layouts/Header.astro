@@ -7,34 +7,33 @@
  */
 
 const navLinks = [
-  { href: '#services', label: 'Services' },
-  { href: '#contact', label: 'Contact' },
-  { href: '#about', label: 'About' },
-  { href: '#hero', label: 'Home' },
+  { href: '/#hero', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/#about', label: 'About' },
+  { href: '/#contact', label: 'Contact' },
 ];
 ---
 
 <section class="fixed top-0 left-0 right-0 z-50">
-  <nav class="max-w-[90%] mx-auto lg:px-4 lg:pt-10 pt-4 px-2 flex items-start justify-between">
+  <nav class="max-w-[90%] mx-auto lg:px-4 lg:pt-8 pt-4 px-4
+   flex items-center justify-between">
     <!-- Logo / Brand -->
     <a
       href="/"
-      class="text-4xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
+      class="lg:text-6xl text-4xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
     >
       <!-- Replace with your logo -->
       KAMICO
     </a>
 
     <!-- Desktop Navigation Links -->
-    <ul class="hidden lg:flex flex-col gap-1 items-end">
+    <ul class="hidden lg:flex gap-8 items-end bg-black/10 px-6 py-2 rounded-xl backdrop-blur-xs shadow-[0_0_4px_0px_#06b6d4]">
       {
-        navLinks.map((link,index) => (
+        navLinks.map((link, index) => (
           <li class={`fade-in-left stagger-${index + 1}`}>
-            <div class="hover:-translate-x-2 duration-500">
-              <a
-                href={link.href}
-                class="bg-gradient-to-r from-primary-light via-primary-light/80 to-primary-light/70 bg-clip-text text-transparent hover:text-primary-light duration-500 text-3xl font-medium"
-              >
+            <div class="hover:translate-x-1 duration-300">
+              <a href={link.href} class="text-muted hover:text-primary-light duration-300 text-lg font-medium
+              before:content-['▸'] before:absolute before:-left-4 before:opacity-0 hover:before:opacity-100 before:text-primary-light before:transition-opacity">
                 {link.label}
               </a>
             </div>
@@ -45,7 +44,9 @@ const navLinks = [
 
     <!-- Mobile Menu Button -->
     <button id="hamburger-btn" class="md:hidden py-2" aria-label="Toggle menu">
-      <i class="fas fa-bars text-xl bg-gradient-to-r from-primary-light via-primary-light/80 to-primary-light bg-clip-text text-transparent"></i>
+      <i
+        class="fas fa-bars text-xl bg-gradient-to-r from-primary-light via-primary-light/80 to-primary-light bg-clip-text text-transparent"
+      ></i>
     </button>
   </nav>
 </section>

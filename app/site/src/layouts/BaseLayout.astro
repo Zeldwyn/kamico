@@ -14,6 +14,7 @@ import Header from './Header.astro';
 import Footer from './Footer.astro';
 import '../styles/global.css';
 import ScrollToTop from '@/components/widget/ScrollToTop.astro';
+import FloatingContact from '@/components/widget/FloatingContact.astro';
 
 interface Props {
   title?: string;
@@ -33,7 +34,7 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/images/logo.png" />
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO Meta Tags -->
@@ -65,7 +66,7 @@ const {
   </head>
 
   <body class="antialiased relative overflow-x-hidden overflow-hidden">
-    <div class="absolute top-20 left-10 flex flex-col gap-8 text-[150px] text-primary/5 z-0">
+    <div class="absolute top-20 left-10 flex flex-col gap-8 text-[150px] text-primary/5 z-1">
       {
         Array(4) // number of times you want it to repeat
           .fill(['K', 'A', 'M', 'I', '&', 'C', 'O', '.'])
@@ -73,15 +74,18 @@ const {
           .map((letter) => <p>{letter}</p>)
       }
     </div>
+    <div class="absolute inset-0 bg-[url('/images/bg.webp')]
+         bg-repeat opacity-15 z-0"></div>
 
     <Header />
-    <main class="overflow-x-hidden z-1">
+    <main class="overflow-hidden z-2">
       <slot />
     </main>
     <Footer />
+    <FloatingContact />
     <ScrollToTop />
     <script src="../scripts/smooth-scroll.js"></script>
     <script src="../scripts/scroll-animations.js"></script>
-    <script src="../scripts/scroll-to-top.js"></script>
+    <script src="../scripts/floating-widget.js"></script>
   </body>
 </html>
