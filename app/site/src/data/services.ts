@@ -25,15 +25,15 @@ export const services: Service[] = [
   {
     slug: 'single-page-website',
     title: 'Single-Page Website',
-    shortDescription:
-      'Practical services designed to help businesses build, improve, and present themselves clearly.',
+    shortDescription: 'Practical services designed to help businesses build, improve, and present themselves clearly.',
     fullDescription:
       'A fast, modern, and SEO-ready static website built for service-based businesses. Perfect for showcasing your brand, services, and contact information in one seamless scrolling experience.',
     image: '/images/services/service.png',
     pricing: {
       price: '$1,000+',
       label: 'USD',
-      description: 'This is the base price for a modern single-page website. Custom features and add-ons are negotiable, so the final cost may vary depending on your requests and needs.',
+      description:
+        'This is the base price for a modern single-page website. Custom features and add-ons are negotiable, so the final cost may vary depending on your requests and needs.',
     },
     features: [
       {
@@ -96,18 +96,11 @@ export const services: Service[] = [
     addOns: [
       {
         category: 'Design Upgrades',
-        items: [
-          'Fully custom UI/UX design',
-          'Advanced animations & effects',
-          'Landing-page optimization',
-        ],
+        items: ['Fully custom UI/UX design', 'Advanced animations & effects', 'Landing-page optimization'],
       },
       {
         category: 'Pages & Content',
-        items: [
-          'Additional pages (About, Pricing, FAQ, etc.)',
-          'Copywriting assistance',
-        ],
+        items: ['Additional pages (About, Pricing, FAQ, etc.)', 'Copywriting assistance'],
       },
       {
         category: 'CMS & Dynamic Content',
@@ -120,18 +113,11 @@ export const services: Service[] = [
       },
       {
         category: 'Calendar Integrations',
-        items: [
-          'Calendly scheduling embed',
-          'Google Calendar integration',
-        ],
+        items: ['Calendly scheduling embed', 'Google Calendar integration'],
       },
       {
         category: 'Maintenance & Support',
-        items: [
-          'Ongoing site updates',
-          'Performance & security checks',
-          'Content changes on request',
-        ],
+        items: ['Ongoing site updates', 'Performance & security checks', 'Content changes on request'],
       },
     ],
   },
@@ -171,10 +157,9 @@ export const services: Service[] = [
         category: 'CMS & Dynamic Content',
         items: [
           'Sanity CMS integration (free tier included)',
-          'Manage pages, blog posts, and services dynamically',
-          'Client-friendly editing dashboard — no coding required',
+          'Manage dynamic content',
+          'Ready to use sanity dashboard',
           'Structured content for easy scaling',
-          'Upgrade to Sanity paid plan as your site grows',
         ],
       },
       {
@@ -219,27 +204,15 @@ export const services: Service[] = [
     addOns: [
       {
         category: 'Content & Blogging',
-        items: [
-          'Blog with categories and tags',
-          'Copywriting assistance',
-          'Advanced CMS workflows',
-        ],
+        items: ['Blog with categories and tags', 'Copywriting assistance', 'Advanced CMS workflows'],
       },
       {
         category: 'Design Upgrades',
-        items: [
-          'Advanced animations & effects',
-          'Fully custom UI/UX design',
-          'Landing-page optimization',
-        ],
+        items: ['Advanced animations & effects', 'Fully custom UI/UX design', 'Landing-page optimization'],
       },
       {
         category: 'Maintenance & Support',
-        items: [
-          'Ongoing site updates',
-          'Performance & security checks',
-          'Content changes on request',
-        ],
+        items: ['Ongoing site updates', 'Performance & security checks', 'Content changes on request'],
       },
     ],
   },
@@ -277,60 +250,55 @@ export const services: Service[] = [
       },
       {
         category: 'UI & Experience',
-        items: [
-          'Custom HUD and UI mods',
-          'In-game menus & interfaces',
-          'Loading screens & branding',
-        ],
+        items: ['Custom HUD and UI mods', 'In-game menus & interfaces', 'Loading screens & branding'],
       },
       {
         category: 'Documentation',
-        items: [
-          'Setup documentation',
-          'Admin usage guides',
-          'Configuration walkthroughs',
-        ],
+        items: ['Setup documentation', 'Admin usage guides', 'Configuration walkthroughs'],
       },
     ],
     addOns: [
       {
         category: 'Development',
-        items: [
-          'Custom scripting',
-          'Database setup',
-          'Advanced framework integration',
-        ],
+        items: ['Custom scripting', 'Database setup', 'Advanced framework integration'],
       },
       {
         category: 'Hosting & Maintenance',
-        items: [
-          'Server hosting assistance',
-          'Regular maintenance',
-          'Priority support',
-        ],
+        items: ['Server hosting assistance', 'Regular maintenance', 'Priority support'],
       },
     ],
   },
   {
-    slug: 'food-venture',
-    title: 'Food Venture',
+    slug: 'portfolio-project',
+    title: 'Portfolio Website',
     shortDescription:
-      "Soon, we plan to venture into the food business. Nothing's decided yet, but stay tuned!",
+      'Custom portfolio websites designed for entrepreneurs, freelancers, photographers, and videographers to showcase their work professionally.',
     fullDescription:
-      "We're exploring opportunities in the food industry. This is an upcoming venture that we're excited about. Stay tuned for more details as we develop this service offering.",
-    image: '/images/services/soon.png',
+      'We create modern, responsive portfolio websites tailored to your brand and creative work. Perfect for photographers, videographers, designers, and freelancers, each site highlights your projects with clean design, fast performance, SEO-friendly structure, and easy navigation. Showcase your work and attract clients with a polished, professional online presence.',
+    image: '/images/services/portfolio.png',
+
     pricing: {
-      price: 'Coming Soon',
-      label: '',
-      description: 'Details will be announced when this service launches',
+      price: '800+',
+      label: 'USD',
+      description: 'Pricing depends on project scope, number of pages, features, and customization level',
     },
+
     features: [
       {
-        category: 'Coming Soon',
+        category: 'Design & User Experience',
         items: [
-          'Details coming soon',
-          'Stay tuned for updates',
-          'Follow our socials for announcements',
+          'Custom responsive design (mobile-first)',
+          'Clean and modern UI/UX implementation',
+          'User-focused layout and accessibility best practices',
+        ],
+      },
+      {
+        category: 'Development & Delivery',
+        items: [
+          'Modern frontend development (React / Next.js)',
+          'SEO-friendly structure',
+          'Fast performance optimization',
+          'Deployment & hosting setup',
         ],
       },
     ],
