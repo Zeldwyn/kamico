@@ -1,6 +1,5 @@
 ---
 import Button from '../ui/Button.astro';
-import DotPattern from '../ui/DotPattern.astro';
 
 const values = [
   {
@@ -51,7 +50,7 @@ const steps = [
 <!-- About Section -->
 <section id="about" class="lg:py-20 py-8 relative space-y-16">
   <div class="max-w-7xl mx-auto px-6 flex lg:flex-row flex-col-reverse lg:gap-0 gap-8 relative">
-    <DotPattern class="-left-10 lg:-top-10 top-10 lg:!h-50 !h-20 !w-40 !z-1 fade-in-left" />
+    <!-- <DotPattern class="-left-10 lg:-top-10 top-10 lg:!h-50 !h-20 !w-40 !z-1 fade-in-left" /> -->
     <div class="lg:w-[40%] lg:flex hidden items-center justify-center z-2 relative">
       <!-- Bottom line -->
       <div class="absolute -bottom-4 -right-4 lg:h-0.5 lg:w-16 h-0 w-0 bg-accent translate-x-1 translate-y-1"></div>
@@ -85,7 +84,7 @@ const steps = [
   </div>
  
   <div class="max-w-7xl mx-auto px-6 flex flex-col lg:gap-16 gap-8 items-center justify-center relative py-8">
-    <DotPattern class="-right-10 lg:-top-20 -top-10 lg:!h-30 lg:!w-70 !w-40 !h-16 !z-1 fade-in-left" />
+    <!-- <DotPattern class="-right-10 lg:-top-20 -top-10 lg:!h-30 lg:!w-70 !w-40 !h-16 !z-1 fade-in-left" /> -->
     <h2 class="text-2xl md:text-4xl font-medium fade-in-up stagger-2 uppercase z-1">
       What we <span class="gradient-text">stand</span> for
     </h2>
@@ -115,16 +114,16 @@ const steps = [
   <div class="px-6 z-1">
     <div
       class="relative flex flex-col items-center justify-center lg:w-5xl mx-auto shadow-[0_0_4px_1px_#06b6d4]
-            rounded-sm overflow-hidden lg:py-16 p-4 bg-[url('/images/about/banner2.webp')] bg-cover bg-center"
+            rounded-sm overflow-hidden lg:py-16 p-4 gap-2 bg-[url('/images/about/banner2.webp')] bg-cover bg-center"
     >
       <div
         class="absolute inset-0 bg-gradient-to-br from-background/80 to-background/70 pointer-events-none backdrop-blur-xs"
       >
       </div>
-      <div class="mb-2 font-black gradient-text z-1">
+      <div class="font-black gradient-text z-1">
         <p>HIRE US NOW</p>
       </div>
-      <h2 class="text-4xl md:text-6xl font-bold lg:w-xl uppercase text-center mb-8 z-1">
+      <h2 class="text-3xl md:text-6xl font-bold lg:w-xl uppercase text-center z-1">
         Let’s Create a Website That Matches Your <span class="gradient-text"> Business Values </span>
       </h2>
       <Button text="Contact Us" href="#contact"/>
