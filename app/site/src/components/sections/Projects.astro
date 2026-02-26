@@ -1,0 +1,86 @@
+---
+const projects = [
+  {
+    title: 'Vape Business Catalog Website',
+    description: 'A modern product catalog website built for a vaping business, helping showcase products while establishing a strong digital identity for the shop.',
+    link: 'https://paasoboss.vercel.app/',
+  },
+  {
+    title: 'Construction Website Template',
+    description: 'A flexible construction website template created for contractors and service businesses to professionally present their services and completed projects online.',
+    link: 'https://kamico-templates-v1.vercel.app/',
+  },  
+  {
+  title: 'Modern Portfolio & Template',
+  description:
+    'A sleek, flexible portfolio template with a modern design, built to help creatives and businesses showcase projects, skills, or products in a professional and visually engaging way.',
+  link: 'https://kamico-templates-v2.vercel.app/',
+  },
+  {
+    title: 'Barangay Website Template',
+    description: 'A community-focused barangay website template designed to improve public information access, announcements, and online service visibility.',
+    link: 'https://kamico-templates-v3.vercel.app/',
+  },
+];
+---
+
+<section id="about" class="lg:py-20 py-8 relative space-y-16">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col gap-8 relative">
+    <div class="lg:w-[60%] mx-auto pt-32 px-4 relative z-10 space-y-6 fade-in-up text-center">
+      <div class="mb-2 font-black bg-gradient-to-r from-primary via-primary-light to-secondary/40 bg-clip-text text-transparent">
+        <p>OUR PROJECTS</p>
+      </div>
+      <h2 class="text-4xl md:text-6xl font-medium uppercase">
+        <span class="bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent">WHAT</span>
+        we've built
+      </h2>
+      <p class="lg:text-base text-sm max-w-3xl text-white/70">
+        <span class="bg-gradient-to-r from-primary via-primary-light to-secondary bg-clip-text text-transparent">Explore</span>
+        websites, client collaborations, and customizable templates crafted to help businesses launch faster and present themselves professionally online.
+      </p>
+    </div>
+    <div class="grid lg:grid-cols-2 grid-cols-1 pt-8 pb-4 lg:gap-8 gap-6 w-fit mx-auto">
+      {
+        projects.map((project, index) => (
+          <div class={`fade-in-up stagger-${index + 1} h-auto lg:w-140 rounded-lg shadow-[0_0_20px_rgba(0,0,0,0.45)] overflow-hidden p-2 flex flex-col justify-between relative text-white group`}>
+            <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_25%,rgba(255,255,255,0.15)_50%,transparent_75%)] bg-[length:250%_250%] bg-no-repeat bg-[position:130%_0] transition-[background-position] duration-[1500ms] group-hover:bg-[position:-100%_0] pointer-events-none" />
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-primary-light/20 pointer-events-none" />
+
+            <div class="absolute inset-0 rounded-lg overflow-hidden h-full w-full z-10 opacity-80 iframe-preview">
+              <iframe src={project.link} class="absolute top-0 left-0 rounded-lg border border-white/10 pointer-events-none origin-top-left" style="width: 1280px;" loading="lazy" scrolling="no" />
+              <div class="absolute inset-0 bg-black/40" />
+            </div>
+            <div class="h-30"></div>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="p-2 flex flex-col relative z-10 gap-4">
+              <div class="space-y-2 ">
+                <p class="font-thin lg:text-2xl text-xl backdrop-blur-md w-fit">{project.title}</p>
+                <p class="lg:text-sm text-xs text-white/80 backdrop-blur-md">{project.description}</p>
+              </div>
+              <div class="p-2 px-4 w-full lg:text-sm text-xs rounded-full bg-primary/20 border-primary-light/40 text-white border backdrop-blur-sm flex justify-between items-center">
+                <p>View Full Site</p>
+                <i class="fa-solid fa-arrow-right -rotate-45 group-hover:rotate-0 duration-500" />
+              </div>
+            </a>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  function scaleIframePreviews() {
+    document.querySelectorAll<HTMLElement>('.iframe-preview').forEach((wrapper) => {
+      const iframe = wrapper.querySelector('iframe');
+      if (!iframe) return;
+      const scale = wrapper.offsetWidth / 1280;
+      iframe.style.transform = `scale(${scale})`;
+      iframe.style.height = `${wrapper.offsetHeight / scale}px`;
+    });
+  }
+
+  scaleIframePreviews();
+
+  const observer = new ResizeObserver(scaleIframePreviews);
+  document.querySelectorAll('.iframe-preview').forEach((el) => observer.observe(el));
+</script>
