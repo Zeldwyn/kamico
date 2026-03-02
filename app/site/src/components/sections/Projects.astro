@@ -9,12 +9,18 @@ const projects = [
     title: 'Construction Website Template',
     description: 'A flexible construction website template created for contractors and service businesses to professionally present their services and completed projects online.',
     link: 'https://kamico-templates-v1.vercel.app/',
-  },  
+  },
   {
-  title: 'Modern Portfolio & Template',
-  description:
-    'A sleek, flexible portfolio template with a modern design, built to help creatives and businesses showcase projects, skills, or products in a professional and visually engaging way.',
-  link: 'https://kamico-templates-v2.vercel.app/',
+    title: 'Construction Website Template V2',
+    description:
+      'A modern construction website template designed with a fresh layout, bold visuals, and streamlined navigation to help contractors and service businesses showcase their projects and services in a contemporary style.',
+    link: 'https://kamico-templates-v4.vercel.app/',
+  },
+  {
+    title: 'Modern Portfolio & Template',
+    description:
+      'A sleek, flexible portfolio template with a modern design, built to help creatives and businesses showcase projects, skills, or products in a professional and visually engaging way.',
+    link: 'https://kamico-templates-v2.vercel.app/',
   },
   {
     title: 'Barangay Website Template',
@@ -50,7 +56,7 @@ const projects = [
               <iframe src={project.link} class="absolute top-0 left-0 rounded-lg border border-white/10 pointer-events-none origin-top-left" style="width: 1280px;" loading="lazy" scrolling="no" />
               <div class="absolute inset-0 bg-black/40" />
             </div>
-            <div class="h-30"></div>
+            <div class="h-30" />
             <a href={project.link} target="_blank" rel="noopener noreferrer" class="p-2 flex flex-col relative z-10 gap-4">
               <div class="space-y-2 ">
                 <p class="font-thin lg:text-2xl text-xl backdrop-blur-md w-fit">{project.title}</p>
