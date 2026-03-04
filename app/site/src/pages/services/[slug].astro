@@ -4,15 +4,53 @@ import Button from '@/components/ui/Button.astro';
 import { getServiceBySlug } from '@/data/services';
 import First from '@/components/serviceSections/First.astro';
 import Default from '@/components/serviceSections/Default.astro';
+
+const SITE_URL = 'https://kamico.vercel.app';
+
 const { slug } = Astro.params;
 const service = slug ? getServiceBySlug(slug) : undefined;
 
 if (!service) {
   return Astro.redirect('/404');
 }
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: service.title,
+  description: service.fullDescription,
+  url: `${SITE_URL}/services/${service.slug}`,
+  provider: {
+    '@type': 'Organization',
+    name: 'Kami & Co',
+    url: SITE_URL,
+  },
+  offers: {
+    '@type': 'Offer',
+    price: service.pricing.price.replace(/[^0-9.]/g, ''),
+    priceCurrency: 'USD',
+    description: service.pricing.description,
+  },
+  areaServed: {
+    '@type': 'Country',
+    name: 'Philippines',
+  },
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: SITE_URL },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: `${SITE_URL}/#services` },
+    { '@type': 'ListItem', position: 3, name: service.title, item: `${SITE_URL}/services/${service.slug}` },
+  ],
+};
 ---
 
 <BaseLayout title={`${service.title} | KAMI & CO`} description={service.fullDescription}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   <div class="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-secondary/10 pointer-events-none">
   </div>
 
@@ -20,7 +58,7 @@ if (!service) {
   <section
     class="min-h-[60vh] lg:max-w-[80%] mx-auto flex lg:flex-row flex-col lg:gap-0 gap-6 items-center justify-center relative pt-16 px-6"
   >
-    <div class="lg:max-w-2xl flex flex-col gap-6 fade-in-left">
+    <div class="lg:max-w-2xl flex flex-col text-center gap-6 fade-in-left">
       <a href="/#services" class="flex items-center gap-2 text-sm text-white/80 group">
         <i class="fa fa-arrow-left text-xs group-hover:-translate-x-1 duration-500 gradient-text"></i>
         <span class="gradient-text duration-500">Back to Services</span>
@@ -33,12 +71,11 @@ if (!service) {
       </p>
     </div>
 
-    <div class="fade-in-right flex-1 z-2 mx-auto">
+    <!-- <div class="fade-in-right flex-1 z-2 mx-auto">
       <div
         class="lg:w-3xl w-full mx-auto lg:p-16 p-8 flex flex-col gap-6 border-2 border-[#333] bg-gradient-to-br from-primary-dark/80 via-primary-dark/50 to-primary-dark/40
            relative group duration-500"
       >
-        <!-- Shimmer background layer -->
         <div
           class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.15)_50%,transparent_75%)] bg-[length:250%_250%] bg-no-repeat bg-[position:130%_0] transition-[background-position] duration-[1500ms] group-hover:bg-[position:-100%_0] pointer-events-none"
         >
@@ -55,7 +92,7 @@ if (!service) {
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
   </section>
 
   <!-- Pricing Section -->

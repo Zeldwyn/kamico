@@ -1,36 +1,45 @@
 ---
+// To replace thum.io screenshots with your own:
+// 1. Take a screenshot of each site (1280×800px, save as WebP)
+// 2. Add it to /public/images/projects/ e.g. paasoboss.webp
+// 3. Replace the screenshot value below with the local path e.g. /images/projects/paasoboss.webp
 const projects = [
   {
     title: 'Vape Business Catalog Website',
     description: 'A modern product catalog website built for a vaping business, helping showcase products while establishing a strong digital identity for the shop.',
     link: 'https://paasoboss.vercel.app/',
+    screenshot: '/images/projects/paasoboss.png',
   },
   {
     title: 'Construction Website Template',
     description: 'A flexible construction website template created for contractors and service businesses to professionally present their services and completed projects online.',
     link: 'https://kamico-templates-v1.vercel.app/',
+    screenshot: '/images/projects/constructionV1.png',
   },
   {
     title: 'Construction Website Template V2',
     description:
       'A modern construction website template designed with a fresh layout, bold visuals, and streamlined navigation to help contractors and service businesses showcase their projects and services in a contemporary style.',
     link: 'https://kamico-templates-v4.vercel.app/',
+    screenshot: '/images/projects/constructionV2.png',
   },
   {
     title: 'Modern Portfolio & Template',
     description:
       'A sleek, flexible portfolio template with a modern design, built to help creatives and businesses showcase projects, skills, or products in a professional and visually engaging way.',
     link: 'https://kamico-templates-v2.vercel.app/',
+    screenshot: '/images/projects/portfolio.png',
   },
   {
     title: 'Barangay Website Template',
     description: 'A community-focused barangay website template designed to improve public information access, announcements, and online service visibility.',
     link: 'https://kamico-templates-v3.vercel.app/',
+    screenshot: '/images/projects/barangay.png',
   },
 ];
 ---
 
-<section id="about" class="lg:py-20 py-8 relative space-y-16">
+<section id="projects" class="lg:py-20 py-8 relative space-y-16">
   <div class="max-w-7xl mx-auto px-6 flex flex-col gap-8 relative">
     <div class="lg:w-[60%] mx-auto pt-32 px-4 relative z-10 space-y-6 fade-in-up text-center">
       <div class="mb-2 font-black bg-gradient-to-r from-primary via-primary-light to-secondary/40 bg-clip-text text-transparent">
@@ -52,8 +61,14 @@ const projects = [
             <div class="absolute inset-0 bg-[linear-gradient(90deg,transparent_25%,rgba(255,255,255,0.15)_50%,transparent_75%)] bg-[length:250%_250%] bg-no-repeat bg-[position:130%_0] transition-[background-position] duration-[1500ms] group-hover:bg-[position:-100%_0] pointer-events-none" />
             <div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-primary-light/20 pointer-events-none" />
 
-            <div class="absolute inset-0 rounded-lg overflow-hidden h-full w-full z-10 opacity-80 iframe-preview">
-              <iframe src={project.link} class="absolute top-0 left-0 rounded-lg border border-white/10 pointer-events-none origin-top-left" style="width: 1280px;" loading="lazy" scrolling="no" />
+            <div class="absolute inset-0 rounded-lg overflow-hidden h-full w-full z-10 opacity-80">
+              <img
+                src={project.screenshot}
+                alt={`Screenshot of ${project.title}`}
+                class="absolute top-0 left-0 w-full h-full object-cover object-top rounded-lg"
+                loading="lazy"
+                decoding="async"
+              />
               <div class="absolute inset-0 bg-black/40" />
             </div>
             <div class="h-30" />
@@ -73,20 +88,3 @@ const projects = [
     </div>
   </div>
 </section>
-
-<script>
-  function scaleIframePreviews() {
-    document.querySelectorAll<HTMLElement>('.iframe-preview').forEach((wrapper) => {
-      const iframe = wrapper.querySelector('iframe');
-      if (!iframe) return;
-      const scale = wrapper.offsetWidth / 1280;
-      iframe.style.transform = `scale(${scale})`;
-      iframe.style.height = `${wrapper.offsetHeight / scale}px`;
-    });
-  }
-
-  scaleIframePreviews();
-
-  const observer = new ResizeObserver(scaleIframePreviews);
-  document.querySelectorAll('.iframe-preview').forEach((el) => observer.observe(el));
-</script>

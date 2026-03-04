@@ -1,0 +1,15 @@
+# robots.txt for KAMICO (kamico.vercel.app)
+# Replace the domain below with your actual production domain
+
+User-agent: *
+Allow: /
+
+# Block crawling of server internals
+Disallow: /api/
+Disallow: /_astro/
+Disallow: /dist/
+
+# Sitemap location
+Sitemap: https://kamico.vercel.app/sitemap.xml
+
+
