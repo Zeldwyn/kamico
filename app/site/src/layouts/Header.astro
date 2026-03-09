@@ -33,7 +33,7 @@ const navLinks = [
         navLinks.map((link, index) => (
           <li class={`fade-in-up stagger-${index + 1}`}>
             <div class="hover:translate-x-1 duration-300">
-              <a href={link.href} class="text-muted hover:text-primary-light duration-300 text-lg font-medium
+              <a href={link.href} class="uppercase text-muted hover:text-primary-light duration-300 text-lg font-medium
               before:content-['▸'] before:absolute before:-left-4 before:opacity-0 hover:before:opacity-100 before:text-primary-light before:transition-opacity">
                 {link.label}
               </a>
