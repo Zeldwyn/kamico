@@ -11,6 +11,13 @@ const projects = [
     screenshot: '/images/projects/paasoboss.png',
   },
   {
+    title: 'VD Construction Surigao Website',
+    description:
+      'A modern single-page website built for a construction company in Surigao, designed to showcase their services, highlight completed projects, and provide an easy way for clients to inquire online.',
+    link: 'https://vd-construction.vercel.app/',
+    screenshot: '/images/projects/vd-construction.png',
+  },
+  {
     title: 'Construction Website Template',
     description: 'A flexible construction website template created for contractors and service businesses to professionally present their services and completed projects online.',
     link: 'https://kamico-templates-v1.vercel.app/',
@@ -62,13 +69,7 @@ const projects = [
             <div class="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-primary-light/20 pointer-events-none" />
 
             <div class="absolute inset-0 rounded-lg overflow-hidden h-full w-full z-10 opacity-80">
-              <img
-                src={project.screenshot}
-                alt={`Screenshot of ${project.title}`}
-                class="absolute top-0 left-0 w-full h-full object-cover object-top rounded-lg"
-                loading="lazy"
-                decoding="async"
-              />
+              <img src={project.screenshot} alt={`Screenshot of ${project.title}`} class="absolute top-0 left-0 w-full h-full object-cover object-top rounded-lg" loading="lazy" decoding="async" />
               <div class="absolute inset-0 bg-black/40" />
             </div>
             <div class="h-30" />
