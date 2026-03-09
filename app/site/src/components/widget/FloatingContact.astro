@@ -3,31 +3,31 @@ const floatingButtons = [
   {
     id: 'facebook',
     href: 'https://www.facebook.com/KamiAndCo',
-    label: 'Facebook',
+    label: 'facebook.com/KamiAndCo',
     icon: 'fa-brands fa-facebook-f',
   },
   {
     id: 'whatsapp',
-    href: 'https://wa.me/639193625924',
-    label: 'WhatsApp',
+    href: 'https://wa.me/639277341721',
+    label: 'wa.me/639277341721',
     icon: 'fa-brands fa-whatsapp',
   },
   {
     id: 'telegram',
     href: 'https://t.me/zeldwyn',
-    label: 'Telegram',
+    label: 't.me/zeldwyn',
     icon: 'fa-brands fa-telegram',
   },
   {
     id: 'mail',
     href: 'mailto:contact.kamico@gmail.com',
-    label: 'Email',
+    label: 'contact.kamico@gmail.com',
     icon: 'fa-solid fa-envelope',
   },
 ];
 ---
 
-<div class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-[9999] hidden lg:flex flex-col gap-3">
+<div class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-[9999] flex flex-col gap-3">
   {
     floatingButtons.map((btn) => (
       <div class="relative group">
