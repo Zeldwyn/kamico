@@ -6,8 +6,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   const scrollToTopBtn = document.getElementById('scroll-to-top');
   const floatingBtns = document.querySelectorAll('[id^="floating-btn"]');
+  const floatingContact = document.getElementById('floating-contact-container');
 
-  if (!scrollToTopBtn && floatingBtns.length === 0) return;
+  if (!scrollToTopBtn && floatingBtns.length === 0 && !floatingContact) return;
 
   function toggleVisibility() {
     const show = window.scrollY > 300;
@@ -21,6 +22,16 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.remove('opacity-100');
       }
     });
+
+    if (floatingContact) {
+      if (show) {
+        floatingContact.classList.remove('opacity-0', 'pointer-events-none');
+        floatingContact.classList.add('opacity-100');
+      } else {
+        floatingContact.classList.add('opacity-0', 'pointer-events-none');
+        floatingContact.classList.remove('opacity-100');
+      }
+    }
 
     if (scrollToTopBtn) {
       if (show) {

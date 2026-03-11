@@ -27,36 +27,86 @@ const floatingButtons = [
 ];
 ---
 
-<div class="fixed bottom-4 left-4 md:bottom-8 md:left-8 z-[9999] flex flex-col gap-3">
-  {
-    floatingButtons.map((btn) => (
-      <div class="relative group">
-        {/* Tooltip */}
-        <div
-          class="absolute left-full ml-3 top-1/2 -translate-y-1/2
-                 px-3 py-1 rounded-md text-xs font-medium whitespace-nowrap
-                 text-white opacity-0 scale-95 pointer-events-none
-                 transition-all duration-200 group-hover:opacity-100 group-hover:scale-100"
+<div id="floating-contact-container" class="fixed bottom-4 lg:left-16 left-4 md:bottom-8 md:left-8 z-[9999] flex flex-col items-center gap-3 text-white opacity-0 pointer-events-none transition-opacity duration-300">
+  <!-- Sub buttons (rendered above the toggle) -->
+  <div
+    id="floating-sub-buttons"
+    class="flex flex-col items-center gap-3 transition-all duration-300 opacity-0 pointer-events-none translate-y-2"
+  >
+    {floatingButtons.map((btn, i) => (
+      <div class="relative flex items-center gap-2 group/label group">
+        <!-- Tooltip label -->
+        <span
+          class="absolute left-full ml-3 whitespace-nowrap bg-surface/90 text-foreground text-xs px-2 py-1 rounded border border-border opacity-0 group-hover/label:opacity-100 transition-opacity pointer-events-none"
         >
           {btn.label}
-        </div>
-
+        </span>
         <a
           href={btn.href}
           id={`floating-btn-${btn.id}`}
-          aria-label={btn.label}
           target="_blank"
           rel="noopener noreferrer"
-          class="pointer-events-none opacity-0
-                 w-8 h-8 md:w-10 md:h-10 rounded-full
-                 bg-gradient-to-br from-primary-dark via-primary to-primary-light
-                 border border-white/40
-                 shadow-[0_0_0_4px_rgba(255,255,255,0.1)]
-                 flex items-center justify-center"
+          class="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full bg-gradient-to-br from-primary-dark via-primary to-primary-light flex items-center justify-center shadow-lg border border-white/20"
+          aria-label={btn.label}
+          title={btn.label}
+          style={`transition-delay: ${(floatingButtons.length - 1 - i) * 50}ms`}
         >
-          <i class={btn.icon} />
+          <i class={`${btn.icon} group-hover:rotate-y-360 duration-500`}></i>
         </a>
       </div>
-    ))
-  }
+    ))}
+  </div>
+
+  <!-- Main toggle button -->
+  <button
+    id="floating-toggle"
+    class="w-10 h-10 md:w-[50px] md:h-[50px] rounded-full cursor-pointer
+           bg-gradient-to-br from-primary-dark via-primary to-primary-light
+           border border-white/20
+           shadow-[0_0_0_4px_rgba(255,255,255,0.05)]
+           flex items-center justify-center
+           transition-transform duration-300
+           hover:scale-110 active:scale-95"
+    aria-label="Contact options"
+  >
+    <i id="floating-toggle-icon" class="fa-solid fa-address-book transition-all duration-700 lg:text-base text-sm"></i>
+  </button>
 </div>
+
+<script>
+  const toggle = document.getElementById('floating-toggle');
+  const subButtons = document.getElementById('floating-sub-buttons');
+  const icon = document.getElementById('floating-toggle-icon');
+  let isOpen = false;
+
+  toggle?.addEventListener('click', () => {
+    isOpen = !isOpen;
+
+    if (isOpen) {
+      subButtons?.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
+      subButtons?.classList.add('opacity-100', 'translate-y-0');
+      icon?.classList.remove('fa-address-book');
+      icon?.classList.add('fa-xmark');
+      toggle?.classList.add('rotate-[360deg]');
+    } else {
+      subButtons?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+      subButtons?.classList.remove('opacity-100', 'translate-y-0');
+      icon?.classList.remove('fa-xmark');
+      icon?.classList.add('fa-address-book');
+      toggle?.classList.remove('rotate-[360deg]');
+    }
+  });
+
+  // Close when clicking outside
+  document.addEventListener('click', (e) => {
+    const container = toggle?.closest('div')?.parentElement;
+    if (isOpen && container && !container.contains(e.target as Node)) {
+      isOpen = false;
+      subButtons?.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
+      subButtons?.classList.remove('opacity-100', 'translate-y-0');
+      icon?.classList.remove('fa-xmark');
+      icon?.classList.add('fa-address-book');
+      toggle?.classList.remove('rotate-[360deg]');
+    }
+  });
+</script>

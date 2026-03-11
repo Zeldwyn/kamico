@@ -1,0 +1,103 @@
+---
+interface Props {
+  modalId?: string;
+  embedUrl: string;
+  embedTitle?: string;
+  embedHeight?: string;
+  mode?: 'light' | 'dark';
+}
+
+const {
+  modalId = 'booking-modal',
+  embedUrl,
+  embedTitle = 'Schedule an Appointment',
+  embedHeight = '650px',
+  mode = 'dark',
+} = Astro.props;
+
+const isDark = mode === 'dark';
+
+const containerClass = isDark
+  ? 'bg-[#0d0d0d] border-white/10 shadow-[0_0_40px_rgba(0,0,0,0.8)]'
+  : 'bg-white border-gray-200 shadow-[0_0_40px_rgba(0,0,0,0.4)]';
+
+const headerClass = isDark ? 'border-white/10' : 'border-gray-200';
+const titleClass = isDark ? 'text-white' : 'text-gray-800';
+const closeBtnClass = isDark
+  ? 'text-white/50 hover:text-white hover:bg-white/10'
+  : 'text-gray-400 hover:text-gray-700 hover:bg-gray-100';
+---
+
+<div id={modalId} data-modal class="fixed inset-0 z-50 hidden items-center justify-center p-4">
+  <div data-modal-backdrop class="absolute inset-0 bg-black/80 backdrop-blur-sm"></div>
+  <div class={`relative z-10 w-full max-w-6xl rounded-xl overflow-hidden border ${containerClass}`}>
+    <div class={`flex items-center justify-between px-6 py-4 border-b ${headerClass}`}>
+      <h3 class={`font-medium uppercase tracking-wider text-sm ${titleClass}`}>{embedTitle}</h3>
+      <button
+        data-modal-close
+        class={`transition-colors p-1 rounded-md ${closeBtnClass}`}
+        aria-label="Close"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+    <iframe
+      src={embedUrl}
+      style={`border: 0; width: 100%; height: ${embedHeight};`}
+      frameborder="0"
+      title={embedTitle}
+    ></iframe>
+  </div>
+</div>
+
+<script>
+  function initModals() {
+    // Open
+    document.querySelectorAll('[data-open-modal]').forEach((trigger) => {
+      trigger.addEventListener('click', () => {
+        const id = trigger.getAttribute('data-open-modal');
+        const modal = document.getElementById(id!);
+        if (modal) {
+          modal.classList.remove('hidden');
+          modal.classList.add('flex');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close via button
+    document.querySelectorAll('[data-modal] [data-modal-close]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const modal = btn.closest('[data-modal]') as HTMLElement;
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close via backdrop
+    document.querySelectorAll('[data-modal] [data-modal-backdrop]').forEach((backdrop) => {
+      backdrop.addEventListener('click', () => {
+        const modal = backdrop.closest('[data-modal]') as HTMLElement;
+        modal?.classList.add('hidden');
+        modal?.classList.remove('flex');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Close via Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('[data-modal].flex').forEach((modal) => {
+          modal.classList.add('hidden');
+          modal.classList.remove('flex');
+          document.body.style.overflow = '';
+        });
+      }
+    });
+  }
+
+  initModals();
+</script>

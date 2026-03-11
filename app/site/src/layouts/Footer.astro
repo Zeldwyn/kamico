@@ -14,15 +14,11 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- Brand / About -->
       <div class="flex-1 space-y-2">
-        <div
-          class="text-6xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent"
-        >
+        <div class="text-6xl font-bold bg-gradient-to-l from-primary-light via-primary to-primary/90 bg-clip-text text-transparent">
           <!-- Replace with your logo -->
           KAMICO
         </div>
-        <p class="text-muted lg:text-base text-sm">
-          Kami & Co delivers clean, effective websites and digital services built for growth and visibility.
-        </p>
+        <p class="text-muted lg:text-base text-sm">Kami & Co delivers clean, effective websites and digital services built for growth and visibility.</p>
       </div>
 
       <!-- Quick Links -->
@@ -31,11 +27,11 @@ const currentYear = new Date().getFullYear();
         <ul class="space-y-2 text-muted lg:text-base">
           {
             [
-              { label: 'Home', href: '/#hero' },
-              { label: 'Services', href: '/#services' },
-              { label: 'About', href: '/#about' },
-              { label: 'Projects', href: '/#projects'},
-              { label: 'Contact', href: '/#contact' },
+              { href: '/#hero', label: 'Home' },
+              { href: '/#services', label: 'Services' },
+              { href: '/#about', label: 'About' },
+              { href: '/#projects', label: 'Projects' },
+              { href: '/#contact', label: 'Contact' },
             ].map((item) => (
               <li>
                 <a
@@ -63,9 +59,7 @@ const currentYear = new Date().getFullYear();
             class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
           >
             <i class="fa-brands fa-facebook-f z-2 group-hover:rotate-y-360 group-hover:text-white transition-all duration-700"></i>
-            <span
-              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-br from-[#1877F2] to-[#42A5F5]"
-            ></span>
+            <span class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-br from-[#1877F2] to-[#42A5F5]"></span>
           </a>
           <a
             href="https://www.instagram.com/contact.kamico/"
@@ -74,9 +68,7 @@ const currentYear = new Date().getFullYear();
             class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
           >
             <i class="fa-brands fa-instagram z-2 group-hover:rotate-y-360 group-hover:text-white transition-all duration-700"></i>
-            <span
-              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]"
-            ></span>
+            <span class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-tr from-[#f58529] via-[#dd2a7b] to-[#8134af]"></span>
           </a>
           <a
             href="mailto:contact.kamico@gmail.com"
@@ -85,20 +77,24 @@ const currentYear = new Date().getFullYear();
             class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
           >
             <i class="fa fa-envelope z-2 group-hover:rotate-y-360 group-hover:text-white transition-all duration-700"></i>
-            <span
-              class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-r from-[#EA4335] via-[#ff7a7a] to-[#4285F4]"
-            ></span>
+            <span class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-r from-[#EA4335] via-[#ff7a7a] to-[#4285F4]"></span>
+          </a>
+          <a
+            href="https://wa.me/639277341721"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-2xl group p-4 rounded-full h-10 w-10 flex items-center justify-center relative overflow-hidden cursor-pointer"
+          >
+            <i class="fa-brands fa-whatsapp z-2 group-hover:rotate-y-360 group-hover:text-white transition-all duration-700"></i>
+            <span class="absolute bottom-0 h-0 w-12 group-hover:h-12 duration-500 bg-gradient-to-r from-[#25D366] via-[#20c45a] to-[#128C7E]"></span>
           </a>
         </div>
       </div>
-    </div>
 
-    <!-- Copyright -->
-    <div
-      class="border-t-1 border-primary/60 pt-6 lg:mt-8 mt-4 text-center text-muted lg:w-3xl mx-auto flex items-center justify-center text-base"
-    >
-      <p>Copyright {currentYear} <span class="gradient-text">Kami&Co</span>. All rights reserved.</p>
+      <!-- Copyright -->
+      <div class="border-t-1 border-primary/60 pt-6 lg:mt-8 mt-4 text-center text-muted lg:w-3xl mx-auto flex items-center justify-center text-base">
+        <p>Copyright {currentYear} <span class="gradient-text">Kami&Co</span>. All rights reserved.</p>
+      </div>
     </div>
   </div>
 </footer>
-

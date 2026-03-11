@@ -5,79 +5,12 @@
  */
 ---
 
-<button id="scroll-to-top" class="opacity-0 pointer-events-none button text-xs relative group" aria-label="Scroll to top">
-  <!-- Icon -->
-  <svg class="svgIcon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path
-      d="M12 19V5M12 5L5 12M12 5L19 12"
-      stroke="currentColor"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"></path>
+<button
+  id="scroll-to-top"
+  class="opacity-0 pointer-events-none bg-gradient-to-br from-primary-dark via-primary to-primary-light fixed bottom-4 lg:right-16 right-4 z-[9999] w-10 h-10 rounded-full border border-white/20 font-semibold flex items-center justify-center shadow-[0px_0px_0px_4px_rgba(255,255,255,0.05)] cursor-pointer overflow-hidden group text-xs duration-500 hover:-translate-y-2 md:bottom-8 md:right-8 md:w-[50px] md:h-[50px]"
+  aria-label="Scroll to top"
+>
+  <svg class="w-4 h-4 relative z-10 md:w-[18px] md:h-[18px]" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 19V5M12 5L5 12M12 5L19 12" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
   </svg>
 </button>
-
-
-<style>
-  #scroll-to-top {
-    position: fixed;
-    bottom: 1rem;
-    right: 1rem;
-    z-index: 9999;
-  }
-
-  @media (min-width: 768px) {
-    #scroll-to-top {
-      bottom: 2rem;
-      right: 2rem;
-    }
-  }
-
-  .button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary), var(--color-primary-light));
-    border: 2px solid rgba(255, 255, 255, 0.4);
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 0px 0px 4px rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition:
-      opacity 0.3s ease,
-      transform 0.5s ease;
-    overflow: hidden;
-    position: relative;
-  }
-
-  @media (min-width: 768px) {
-    .button {
-      width: 50px;
-      height: 50px;
-    }
-  }
-
-  .svgIcon {
-    width: 16px;
-    height: 16px;
-    position: relative;
-    z-index: 1;
-  }
-
-  @media (min-width: 768px) {
-    .svgIcon {
-      width: 18px;
-      height: 18px;
-    }
-  }
-
-  .svgIcon path {
-    stroke: white;
-  }
-
-  .button:hover {
-    transform: translateY(-0.5rem);
-  }
-</style>
